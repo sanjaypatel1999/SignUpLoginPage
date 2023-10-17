@@ -1,0 +1,45 @@
+﻿@model SignupLogin.Models.ViewModel.LoginSignUpViewModel;
+@{
+    ViewData["Title"] = "Login";
+    Layout = "~/Views/Shared/_Layout_Login.cshtml";
+}
+
+<div class="container">
+    <div class="row">
+        <div class="col-4 offset-3 border border-primary rounded p-lg-5 pr-5 pb-5">
+            <div class="form-center">
+                <a class="text-light btn btn-primary" asp-action="SignUp">Sing up</a>
+            </div>
+            <h6 class="text-sucess text-danger">
+                @TempData["successMessage"]
+            </h6>
+            <form method="post" asp-action="Login">
+                <div class="form-group">
+                    <label asp-for="UserName"></label>
+                    <input type="text" asp-for="UserName" class="form-control" placeholder="Enter your name" />
+                    <span class="text-danger">
+                        @TempData["errorUserName"]
+                    </span>
+                </div>
+               
+                <div class="form-group">
+                    <label asp-for="Password"></label>
+                    <input type="text" asp-for="Password" class="form-control" placeholder="Enter your name" />
+                    <span class="text-danger">
+                        @TempData["errorPassword"]
+                    </span>
+                    
+                </div>
+               
+                <div class="form-group">
+
+                    <input type="submit" value="Log In" class="btn btn-success btn-sm  float-right" />
+                </div>
+            </form>
+
+        </div>
+
+    </div>
+
+</div>
+
